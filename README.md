@@ -64,6 +64,98 @@ Taula que emmagatzema els registres d’assistència dels estudiants, incloent-h
 - Aquestes relacions permeten registrar l’assistència de cada estudiant en una assignatura específica, impartida per un professor específic, juntament amb l’estat d’assistència i la data del registre.
 
 ---
+# Documentación de Pruebas para la Base de Datos
+
+## Insertar Datos de Prueba
+
+Se han insertado los siguientes datos de prueba en las tablas `User`, `Teacher`, `Subject` y `Assistance`:
+
+### Tabla `User`
+```sql
+INSERT INTO User (name, lastName, class_group, email, phone)
+VALUES
+('Juan', 'Pérez', 'DAM1', 'juan.perez@mail.com', 600123456),
+('María', 'Gómez', 'DAM2', 'maria.gomez@mail.com', 600654321);
+```
+
+**Resultado:**
+![USER](image.png)
+
+### Tabla `Teacher`
+```sql
+INSERT INTO Teacher (name, lastName, email, phone)
+VALUES
+('Carlos', 'Lopez', 'carlos.lopez@mail.com', 600987654),
+('Ana', 'Martínez', 'ana.martinez@mail.com', 600321098);
+```
+
+**Resultado:**
+![PROFESOR](image-1.png)
+
+### Tabla `Subject`
+```sql
+INSERT INTO Subject (name)
+VALUES
+('Matemáticas'),
+('Programación');
+```
+
+**Resultado:**
+![SUBJECT](image-2.png)
+
+### Tabla `Assistance`
+```sql
+INSERT INTO Assistance (userID, teacherID, subjectID, attendance_status)
+VALUES
+(1, 1, 1, 'present'),
+(2, 1, 1, 'absent'),
+(1, 2, 2, 'justified');
+```
+
+**Resultado:**
+![ASSISTENCIA](image-3.png)
+
+### Consultas para Pruebas
+
+### a) Consultar asistencias de un estudiante
+```sql
+SELECT u.name AS 'Estudiante', s.name AS 'Asignatura', a.attendance_status AS 'Estado', a.date AS 'Fecha'
+FROM Assistance a
+JOIN User u ON a.userID = u.id
+JOIN Subject s ON a.subjectID = s.id
+ORDER BY a.date;
+```
+
+**Resultado:**
+![Asistencias de Estudiantes](image-4.png)
+
+### b) Consultar la asistencia por asignatura
+```sql
+SELECT s.name AS 'Asignatura', COUNT(a.id) AS 'Total Asistencias',
+       SUM(a.attendance_status = 'present') AS 'Presentes',
+       SUM(a.attendance_status = 'absent') AS 'Ausentes',
+       SUM(a.attendance_status = 'justified') AS 'Justificados'
+FROM Assistance a
+JOIN Subject s ON a.subjectID = s.id
+GROUP BY s.name;
+```
+
+**Resultado:**
+![Asistencias por assignatura](image-5.png)
+
+### c) Verificar asistencia de un profesor
+```sql
+SELECT t.name AS 'Profesor', s.name AS 'Asignatura', u.name AS 'Estudiante', a.attendance_status AS 'Estado', a.date AS 'Fecha'
+FROM Assistance a
+JOIN Teacher t ON a.teacherID = t.id
+JOIN Subject s ON a.subjectID = s.id
+JOIN User u ON a.userID = u.id
+WHERE t.id = 1;
+```
+
+**Resultado:**
+![Asistencias de profesores](image-6.png)
+
 
 # Wireframe
 
