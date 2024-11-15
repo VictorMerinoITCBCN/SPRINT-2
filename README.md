@@ -231,3 +231,60 @@ La pàgina del horari consta de una graella amb l'horari del usuari.
 `Versió professorat: `
 
 ![Horari professorat](screenshots/image-7.png)
+
+## Part DAM
+
+## 1. Login
+- **Función**: Permite a los usuarios ingresar o registrarse en la aplicación.
+- **Elementos Clave**:
+  - Header con botones de acceso y registro.
+  - Campos de usuario y contraseña.
+  - Enlace para recuperar contraseña.
+  - Botón de "Sign In".
+  - Footer con íconos de redes sociales
+  -
+  ![alt text](image-7.png)
+
+
+## 2. Dashboard
+- **Función**: Presenta un resumen de actividad y acceso a las funciones principales.
+- **Elementos Clave**:
+  - Header con logo.
+  - Barra de búsqueda para buscar empleados.
+  - Tarjetas informativas (entradas, salidas, activos).
+  - Botones de acceso rápido: Registro, Historial y Perfil.
+  - Footer de navegación.
+  -
+  ![alt text](image-8.png)
+
+
+## 3. Registro
+- **Función**: Página para registrar entrada o salida del usuario.
+- **Elementos Clave**:
+  - Header con logo.
+  - Dos botones grandes: "Fichar Entrada" y "Fichar Salida".
+  - Footer con navegación y redes sociales.
+  -
+  ![alt text](image-9.png)
+
+
+## 4. Historial
+- **Función**: Visualizar y filtrar el historial de entradas y salidas.
+- **Elementos Clave**:
+  - Header con logo.
+  - Calendario para seleccionar fechas.
+  - Input de fecha para filtro manual.
+  - Botones "Cancelar" y "OK".
+  - Footer de navegación.
+  -
+  ![alt text](image-10.png)
+
+## 5. Perfil
+- **Función**: Mostrar y editar la información personal del usuario.
+- **Elementos Clave**:
+  - Header con logo.
+  - Tarjetas para datos personales: Nombre, ID, Contraseña, Fecha de Nacimiento.
+  - Footer de navegación y redes sociales.
+  -
+  ![alt text](image-11.png)
+
